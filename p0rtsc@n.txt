@@ -1,0 +1,8 @@
+$ip = "10.22.41.214"
+$result = @()
+for ($port = 65000; $port -le 65535 ; $port ++) {
+   $a = (tnc $ip -port $port) | select remoteport, tcptestsucceeded
+   if ($a.tcptestsucceeded ) {
+        $result += $a
+        }
+   }
